@@ -1,0 +1,70 @@
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "${SMTP_USERNAME:}"
+    password: "${SMTP_PASSWORD:}"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/smart_campus?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: "Kamal@26"
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+app:
+  jwt:
+    secret: "change-this-secret-to-a-long-random-string"
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: "http://localhost:5173"
+  gmail:
+    client-id: 1026888599453-6as3bbisrom4ge040dsvbpf2c07mjom3.apps.googleusercontent.com
+    client-secret: GOCSPX- 
+    redirect-uri: "http://localhost:8080/api/gmail/oauth2/callback"
+    ui-redirect: "http://localhost:5173/inbox"
+  chat:
+    daily-limit: 5
+    bonus-queries: 5
+  quiz:
+    time-limit-seconds: 180
+  reminders:
+    interval-ms: 60000
+  mail:
+    from: "${SMTP_FROM:${SMTP_USERNAME:}}"
+  risk-service:
+    base-url: "http://localhost:8001"
+  notifications:
+    deadline-window-days: 2
+  parent-alerts:
+    attendance-threshold: 75
+    days-window: 30
+  whatsapp:
+    provider: "twilio"
+    twilio:
+      account-sid: "${TWILIO_ACCOUNT_SID:}"
+      auth-token: "${TWILIO_AUTH_TOKEN:}"
+      from-number: "${TWILIO_WHATSAPP_FROM:}"
+
+gemini:
+  api-key: AIzaSyB636uewDRJfQyRUfmTGJ7ZGjVmd3BUESU
+  base-url: "https://generativelanguage.googleapis.com"
+  model: "gemini-1.5-flash"

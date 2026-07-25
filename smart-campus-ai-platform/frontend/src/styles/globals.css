@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --primary: 222 89% 60%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222 89% 60%;
+  --radius: 0.9rem;
+}
+
+.dark {
+  --background: 230 35% 8%;
+  --foreground: 210 40% 98%;
+  --card: 230 30% 14%;
+  --card-foreground: 210 40% 98%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 230 25% 18%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 230 25% 18%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 230 25% 18%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 55%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 230 20% 22%;
+  --input: 230 20% 22%;
+  --ring: 217 91% 60%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Space Grotesk", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-campus {
+  background-image: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.18), transparent 40%);
+}
+
+.dashboard-bg {
+  background-image:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.25), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.25), transparent 40%),
+    linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(226, 232, 240, 0.98) 100%);
+}
+
+.dark .dashboard-bg {
+  background-image:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.35), transparent 40%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    110deg,
+    rgba(148, 163, 184, 0.15) 8%,
+    rgba(148, 163, 184, 0.35) 18%,
+    rgba(148, 163, 184, 0.15) 33%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.dark .skeleton {
+  background: linear-gradient(
+    110deg,
+    rgba(148, 163, 184, 0.12) 8%,
+    rgba(148, 163, 184, 0.28) 18%,
+    rgba(148, 163, 184, 0.12) 33%
+  );
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.typing-dots span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  border-radius: 999px;
+  background: currentColor;
+  animation: typing-bounce 1.2s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
